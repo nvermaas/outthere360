@@ -1,0 +1,1 @@
+npm run bundle --assets "http://uilennest.net/static/panoramas/"
