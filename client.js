@@ -20,7 +20,7 @@ function init(bundle, parent, options = {}) {
   );
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('lapland_tipi.jpg', {format: '3DLR'}));
+  r360.compositor.setBackground(r360.getAssetURL('lapland_tipi.jpg','2D'));
   r360.controls.clearRaycasters();
   r360.controls.addRaycaster(SimpleRaycaster);
 }

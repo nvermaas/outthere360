@@ -1,6 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-360";
-
+import { Environment, asset, StyleSheet, Text, View } from "react-360";
 import GazeButton from "react-360-gaze-button";
 
 export default class MyGazeButton extends React.Component {
@@ -10,27 +9,22 @@ export default class MyGazeButton extends React.Component {
 
     setGazed = () => {
         this.setState({ gazed: true });
+        console.log('gazed = true')
+        Environment.setBackgroundImage(asset(this.props.asset))
     };
+
     render() {
         const { gazed } = this.state;
+
         return (
-
-                <GazeButton
-                    duration={3000}
-                    onClick={this.setGazed}
-                    render={(remainingTime, isGazed) => (
-            <View style={styles.greetingBox}>
-              <Text style={styles.greeting}>
-                {gazed
-                  ? "You have gazed me"
-                  : isGazed
-                    ? remainingTime
-                    : "Gaze me"}
-              </Text>
-            </View>
-          )}
-                />
-
+            <GazeButton duration={1000} onClick={this.setGazed} render={(remainingTime, isGazed) => (
+                    <View style={styles.button}>
+                        <Text style={styles.greeting}>
+                        {gazed ? this.props.title : isGazed ? remainingTime : this.props.title}
+                        </Text>
+                    </View>
+                       )}
+            />
         );
     }
 }
@@ -38,20 +32,23 @@ export default class MyGazeButton extends React.Component {
 const styles = StyleSheet.create({
     panel: {
         // Fill the entire surface
-        width: 1000,
-        height: 600,
-        backgroundColor: "rgba(255, 255, 255, 0.4)",
-        justifyContent: "center",
-        alignItems: "center"
+        width: 500,
+        height: 300,
+        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-    greetingBox: {
-        padding: 20,
-        backgroundColor: "#000000",
-        borderColor: "#639dda",
-        borderWidth: 2
+    button: {
+        width: 250,
+        padding: 10,
+        backgroundColor: '#A17A3A',
+        borderColor: '#639dda',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     greeting: {
-        fontSize: 30
-    }
+        fontSize: 30,
+    },
 });
 
