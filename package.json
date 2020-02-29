@@ -12,8 +12,6 @@
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-router": "^5.1.2",
-    "react-router-dom": "^5.1.2",
     "react-360": "~1.1.0",
     "react-360-gaze-button": "^1.0.0",
     "react-360-web": "~1.1.0",

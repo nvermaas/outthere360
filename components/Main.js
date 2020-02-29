@@ -1,7 +1,8 @@
 import React, {useState } from 'react';
-import { View,Text, StyleSheet, AsyncStorage } from 'react-360';
-import MyGazeButton from './MyGazeButton'
+import { View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
 
+import NordicViews from './NordicViews'
+import MyGazeButton from './MyGazeButton'
 
 const styles = StyleSheet.create({
     panel: {
@@ -31,6 +32,10 @@ export default class Main extends React.Component {
         currentImage: "lapland_tipi.jpg",
     };
 
+    setBackgroundImage(url) {
+        Environment.setBackgroundImage(url)
+    }
+
     async getCurrentImage() {
     // Fetching data
         try {
@@ -47,21 +52,26 @@ export default class Main extends React.Component {
 
 
     render() {
-        let currentImage = this.getCurrentImage()
-        console.log('currentImage = '+currentImage)
+        //let currentImage = this.getCurrentImage()
+        console.log('currentImage = '+this.state.currentImage)
+
+        let renderScene
+
+        if (this.props.url) {
+            this.setBackgroundImage(this.props.url)
+            return(<View style={styles.panel}>
+                <Text style={styles.title}>{this.props.title}</Text>
+            </View>)
+        } else {
+            this.setBackgroundImage("http://localhost:8081/static_assets/galaxy.jpg")
+            return(<NordicViews/>)
+            console.log('renderScene: '+renderScene)
+        }
+
         return (
 
-                <View style={styles.panel}>
-                    <Text style={styles.title}>{this.state.currentImage}</Text>
-                    <Text style={styles.info}>Drag the menu to the center screen. In VR mode, aim the RayCaster (the white dot) at the menu</Text>
+            <NordicViews/>
 
-                    <MyGazeButton title="Lapland Forest" asset="lapland_bos.jpg"/>
-                    <MyGazeButton title="Arctic Circle Sweden" asset="lapland_tipi.jpg"/>
-                    <MyGazeButton title="USA Canyonlands" asset="usa_needles.jpg"/>
-                    <MyGazeButton title="ALTA deployment" asset="vr_alta.jpg"/>
-                    <MyGazeButton title="MoM Docs" asset="vr_diagrams.jpg"/>
-                    <MyGazeButton title="Galaxy" asset="galaxy.jpg"/>
-                </View>
         );
     }
 }
