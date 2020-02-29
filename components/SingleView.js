@@ -1,6 +1,5 @@
 import React  from 'react';
 import { View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
-import MyGazeButton from './MyGazeButton'
 
 const styles = StyleSheet.create({
     panel: {
@@ -25,17 +24,13 @@ const styles = StyleSheet.create({
     },
 });
 
-export default function NordicViews(props) {
 
-        return (
-            <View style={styles.panel}>
-                <Text style={styles.info}>Drag the menu to the center screen. In VR mode, aim the RayCaster (the white dot) at the menu</Text>
 
-                <MyGazeButton title="Lapland Forest" asset="lapland_bos.jpg"/>
-                <MyGazeButton title="Saltfjallet National Park" asset="norway_saltfjallet.jpg"/>
-                <MyGazeButton title="Arctic Circle Sweden" asset="lapland_tipi.jpg"/>
-                <MyGazeButton title="USA Canyonlands" asset="usa_needles.jpg"/>
+export default function SingleView(props) {
 
+    Environment.setBackgroundImage(props.url)
+    return(<View style={styles.panel}>
+                <Text style={styles.title}>{props.title}</Text>
             </View>
-        );
+    );
 }

@@ -4,7 +4,7 @@ import { View,Text, StyleSheet } from 'react-360';
 
 import MyGazeButton from './MyGazeButton'
 
-export default function Astron(props) {
+export default function AstronViews(props) {
 
     const styles = StyleSheet.create({
         panel: {

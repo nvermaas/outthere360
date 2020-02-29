@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import Main from './Main.js';
-import Astron from './Astron.js'
+import Astron from './AstronViews.js'
 
 import { NativeModules } from 'react-360'
 
@@ -15,12 +15,13 @@ export default function MyApp(props) {
     // ?url=http://uilennest.net/outthere360/static_assets/norway_saltfjallet.jpg&title=Arctic%20Norway
 
     const urlParams = new URLSearchParams(Location.search);
+    let scene = urlParams.get('scene')  // astron, nordic
     let url = urlParams.get('url')
     let title = urlParams.get('title')
 
     console.log('url: '+url)
     return (
-        <Main url={url} title={title}/>
+        <Main scene={scene} url={url} title={title}/>
     );
 }
 

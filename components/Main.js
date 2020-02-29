@@ -1,8 +1,9 @@
 import React, {useState } from 'react';
-import { View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
+import { asset, View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
 
 import NordicViews from './NordicViews'
-import MyGazeButton from './MyGazeButton'
+import AstronViews from './AstronViews'
+import SingleView from './SingleView'
 
 const styles = StyleSheet.create({
     panel: {
@@ -50,28 +51,26 @@ export default class Main extends React.Component {
         }
     }
 
-
     render() {
         //let currentImage = this.getCurrentImage()
         console.log('currentImage = '+this.state.currentImage)
 
-        let renderScene
-
-        if (this.props.url) {
-            this.setBackgroundImage(this.props.url)
-            return(<View style={styles.panel}>
-                <Text style={styles.title}>{this.props.title}</Text>
-            </View>)
-        } else {
-            this.setBackgroundImage("http://localhost:8081/static_assets/galaxy.jpg")
-            return(<NordicViews/>)
-            console.log('renderScene: '+renderScene)
+        // first check the 'scene=' parameter
+        if (this.props.scene=='astron') {
+            this.setBackgroundImage(asset("galaxy.jpg"))
+            return(<AstronViews />)
         }
 
-        return (
+        if (this.props.scene=='nordic') {
+            this.setBackgroundImage(asset("nordic.jpg"))
+            return(<NordicViews />)
+        }
 
-            <NordicViews/>
-
-        );
+        if (this.props.url) {
+            //this.setBackgroundImage(this.props.url)
+            return(<SingleView url={this.props.url} title={this.props.title}/>)
+        } else {
+            return(<NordicViews/>)
+        }
     }
 }
