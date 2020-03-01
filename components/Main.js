@@ -4,6 +4,7 @@ import { asset, View,Text, StyleSheet, AsyncStorage, Environment } from 'react-3
 import NordicScene from '../scenes/NordicScene'
 import AstronScene from '../scenes/AstronScene'
 import DefaultScene from '../scenes/DefaultScene'
+import MyEntity from '../scenes/MyEntity'
 import SingleView from './SingleView'
 
 import my_styles from '../styles'
@@ -42,6 +43,10 @@ export default class Main extends React.Component {
 
         if (this.props.scene=='nordic') {
             return(<NordicScene />)
+        }
+
+        if (this.props.scene=='entity') {
+            return(<MyEntity />)
         }
 
         // no 'scene=' parameter, check the 'url=' parameter for a single view with title.

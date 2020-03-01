@@ -2,9 +2,6 @@ import React  from 'react';
 import { View,Text, StyleSheet, asset, Environment } from 'react-360';
 import MyGazeButton from '../components/MyGazeButton'
 
-import my_styles from '../styles'
-const styles = StyleSheet.create(my_styles);
-
 export default function DefaultScene(props) {
 
     // set the default background for this scene
@@ -16,7 +13,7 @@ export default function DefaultScene(props) {
 
                 <MyGazeButton title="Lapland Forest" asset="lapland_bos.jpg"/>
                 <MyGazeButton title="Arctic Circle Sweden" asset="lapland_tipi.jpg"/>
-
             </View>
+
         );
 }

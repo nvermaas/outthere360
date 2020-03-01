@@ -2,9 +2,6 @@ import React  from 'react';
 import { View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
 import MyGazeButton from '../components/MyGazeButton'
 
-//import my_styles from '../styles'
-//const styles = StyleSheet.create(my_styles);
-
 export default function NordicScene(props) {
 
         return (
