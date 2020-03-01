@@ -20,9 +20,11 @@ function init(bundle, parent, options = {}) {
   );
 
   // Load the initial environment
-  r360.compositor.setBackground(r360.getAssetURL('lapland_tipi.jpg','2D'));
-  r360.controls.clearRaycasters();
-  r360.controls.addRaycaster(SimpleRaycaster);
+  r360.compositor.setBackground(r360.getAssetURL('outthere360.jpg','2D'));
+
+  // raycaster for VR
+  //r360.controls.clearRaycasters();
+  //r360.controls.addRaycaster(SimpleRaycaster);
 }
 
 window.React360 = {init};

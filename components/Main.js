@@ -6,6 +6,9 @@ import AstronScene from '../scenes/AstronScene'
 import DefaultScene from '../scenes/DefaultScene'
 import SingleView from './SingleView'
 
+import my_styles from '../styles'
+//const styles = StyleSheet.create(my_styles);
+
 export default class Main extends React.Component {
     state = {
         currentImage: "lapland_tipi.jpg",
@@ -41,6 +44,7 @@ export default class Main extends React.Component {
             return(<NordicScene />)
         }
 
+        // no 'scene=' parameter, check the 'url=' parameter for a single view with title.
         if (this.props.url) {
             return(<SingleView url={this.props.url} title={this.props.title}/>)
         } else {

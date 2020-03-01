@@ -1,16 +1,11 @@
-import { StyleSheet } from 'react-360';
 
-export const styles = StyleSheet.create({
-    panel: {
-        // Fill the entire surface
+styles = {
+    info: {
         width: 600,
-        height: 500,
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        height: 100,
+        backgroundColor: 'black',
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    info: {
-        fontSize: 20,
     },
     title: {
         fontSize: 30,
@@ -21,5 +16,26 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-});
+    panel: {
+        // Fill the entire surface
+        width: 600,
+        height: 300,
+        backgroundColor: 'lightgrey',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    button: {
+        width: 250,
+        padding: 10,
+        fontSize: 20,
+        backgroundColor: '#A17A3A',
+        borderColor: '#639dda',
+        borderWidth: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    greeting: {
+        fontSize: 30,
+    },
+}
 
