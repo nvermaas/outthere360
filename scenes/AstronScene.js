@@ -1,8 +1,7 @@
 import React, {useState } from 'react';
 import { View,Text, StyleSheet, Environment, asset } from 'react-360';
-//import styles from 'styles'
-import my_styles from '../styles'
 
+import my_styles from '../styles'
 import MyGazeButton from '../components/MyGazeButton'
 
 export default function AstronScene(props) {
