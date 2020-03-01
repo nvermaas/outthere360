@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import Main from './Main.js';
-import Astron from './AstronViews.js'
+import Astron from '../scenes/AstronScene.js'
 
 import { NativeModules } from 'react-360'
 

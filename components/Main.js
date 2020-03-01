@@ -1,32 +1,10 @@
 import React, {useState } from 'react';
 import { asset, View,Text, StyleSheet, AsyncStorage, Environment } from 'react-360';
 
-import NordicViews from './NordicViews'
-import AstronViews from './AstronViews'
+import NordicScene from '../scenes/NordicScene'
+import AstronScene from '../scenes/AstronScene'
 import SingleView from './SingleView'
 
-const styles = StyleSheet.create({
-    panel: {
-        // Fill the entire surface
-        width: 600,
-        height: 500,
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    info: {
-        fontSize: 20,
-    },
-    title: {
-        fontSize: 30,
-        padding: 10,
-        backgroundColor: '#A17A3A',
-        borderColor: '#639dda',
-        borderWidth: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
 export default class Main extends React.Component {
     state = {
@@ -57,20 +35,20 @@ export default class Main extends React.Component {
 
         // first check the 'scene=' parameter
         if (this.props.scene=='astron') {
-            this.setBackgroundImage(asset("galaxy.jpg"))
-            return(<AstronViews />)
+            //this.setBackgroundImage(asset("vr_dwingeloo_telescope2.jpg"))
+            return(<AstronScene />)
         }
 
         if (this.props.scene=='nordic') {
             this.setBackgroundImage(asset("nordic.jpg"))
-            return(<NordicViews />)
+            return(<NordicScene />)
         }
 
         if (this.props.url) {
             //this.setBackgroundImage(this.props.url)
             return(<SingleView url={this.props.url} title={this.props.title}/>)
         } else {
-            return(<NordicViews/>)
+            return(<NordicScene/>)
         }
     }
 }
